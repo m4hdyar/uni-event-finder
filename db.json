@@ -1,0 +1,64 @@
+{
+  "eventList": [
+    {
+      "eventName": "aann",
+      "eventCaregory": "Educaiton",
+      "eventStartDate": "2022-05-31T22:00:00.000Z",
+      "eventEndDate": "2022-06-02T22:00:00.000Z",
+      "eventLocation": "aaall",
+      "eventCost": "11",
+      "eventDescription": "aadd",
+      "id": 3
+    },
+    {
+      "eventName": "bbb",
+      "eventCaregory": "Party",
+      "eventStartDate": "2022-06-01T22:00:00.000Z",
+      "eventEndDate": "2022-06-03T22:00:00.000Z",
+      "eventLocation": "bbbbllllll",
+      "eventCost": "22222",
+      "eventDescription": "bbbbddddd",
+      "id": 4
+    },
+    {
+      "eventName": "Football",
+      "eventCaregory": "Sport",
+      "eventStartDate": "2022-05-31T22:00:00.000Z",
+      "eventEndDate": "2022-06-14T22:00:00.000Z",
+      "eventLocation": "dlsma[",
+      "eventCost": "3",
+      "eventDescription": "football Day At the University",
+      "id": 5
+    },
+    {
+      "eventName": "test",
+      "eventCaregory": "Educaiton",
+      "eventStartDate": "2022-06-29T22:00:00.000Z",
+      "eventEndDate": "2022-06-29T22:00:00.000Z",
+      "eventLocation": "test",
+      "eventCost": "23",
+      "eventDescription": "test",
+      "id": 6
+    },
+    {
+      "eventName": "test 2",
+      "eventCaregory": "Party",
+      "eventStartDate": "2022-06-08T22:00:00.000Z",
+      "eventEndDate": "2022-06-09T22:00:00.000Z",
+      "eventLocation": "test 2",
+      "eventCost": "24",
+      "eventDescription": "test 2",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
