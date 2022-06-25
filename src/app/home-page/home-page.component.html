@@ -1,1 +1,24 @@
-<p>just another commit to learn git</p>
+<h1>Events</h1>
+
+
+<table mat-table [dataSource]="events" class="mat-elevation-z8 table-full-width">
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let event"> {{event.title}} </td>
+     </ng-container>
+     <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let event"> {{event.description}} </td>
+     </ng-container>
+     <ng-container matColumnDef="start_date">
+        <th mat-header-cell *matHeaderCellDef> Start date </th>
+        <td mat-cell *matCellDef="let event"> {{event.startDate}} </td>
+     </ng-container>
+     <ng-container matColumnDef="end_date">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let event"> {{event.endDate}} </td>
+     </ng-container>
+
+     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>
