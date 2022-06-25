@@ -63,9 +63,10 @@ export class DialogComponent implements OnInit {
           })
         
         
-        }else{
-          this.updateEvent()
         }
+      }else{
+        console.log("hi");
+        this.updateEvent();
       }
     }
 

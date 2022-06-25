@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 
 
@@ -31,7 +32,8 @@ import {MatSortModule} from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent
+    DialogComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
