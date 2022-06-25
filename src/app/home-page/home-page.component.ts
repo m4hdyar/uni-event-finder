@@ -9,11 +9,30 @@ export class HomePageComponent implements OnInit {
   columnsToDisplay = ['title', 'description', 'start_date', 'end_date'];
   events = [
     {
-      "title": "hi",
-      "description": "My desc is ",
+      "title": "First event",
+      "description": "First event",
       "startDate": "2017-10-10",
-      "endDate": "2018-20-1"
+      "endDate": "2017-10-12"
+    },
+    {
+      "title": "Second",
+      "description": "Second event",
+      "startDate": "2017-10-10",
+      "endDate": "2017-10-12"
+    },
+    {
+      "title": "Third",
+      "description": "Third event",
+      "startDate": "2017-10-10",
+      "endDate": "2017-10-12"
+    },
+    {
+      "title": "Fourth",
+      "description": "Fourth event",
+      "startDate": "2017-10-10",
+      "endDate": "2017-10-12"
     }
+
   ];
   constructor() { }
 
