@@ -13,11 +13,17 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatTableModule } from '@angular/material/table'
+import { LoginComponent } from './login/login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule} from '@angular/material/card'
+
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    HomePageComponent
+    HomePageComponent,
+    
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,10 @@ import { MatTableModule } from '@angular/material/table'
     MatIconModule,
     MatListModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
