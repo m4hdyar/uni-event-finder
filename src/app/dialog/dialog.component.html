@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Add Event Form</h1>
+<div mat-dialog-content>
+   <form [formGroup]="eventForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Event Name</mat-label>
+        <input formControlName="eventName" matInput placeholder="Name">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Event Category</mat-label>
+        <mat-select formControlName="eventCaregory" placeholder="Category">
+            <mat-option value="Educaiton"> Educattion </mat-option>
+            <mat-option value="Party"> Party </mat-option>
+            <mat-option value="Sport"> Sport </mat-option>
+            <mat-option value="Job"> Job </mat-option>
+            <mat-option value="Other"> Other </mat-option>
+        </mat-select>
+    </mat-form-field>
+   
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Event Period</mat-label>
+        <mat-date-range-input  [rangePicker]="picker">
+          <input formControlName="eventStartDate" matStartDate placeholder="Start date">
+          <input formControlName="eventEndDate" matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Event Location</mat-label>
+        <input formControlName="eventLocation" matInput placeholder="Location">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cost</mat-label>
+        <input formControlName="eventCost" matInput placeholder="Cost">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Event Description</mat-label>
+        <textarea formControlName="eventDescription" matInput> </textarea>
+      </mat-form-field>
+
+   </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button style="background-color: green;color: aliceblue ; margin-left:8px;" (click)="addEvent()">{{actionBtn}}</button>
+
+</div>
