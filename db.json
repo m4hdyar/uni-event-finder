@@ -89,6 +89,16 @@
       "eventCost": "1",
       "eventDescription": "nnn",
       "id": 11
+    },
+    {
+      "eventName": "test4",
+      "eventCaregory": "Other",
+      "eventStartDate": "2022-06-25T22:00:00.000Z",
+      "eventEndDate": "2022-07-25T22:00:00.000Z",
+      "eventLocation": "Duisburg",
+      "eventCost": "10",
+      "eventDescription": "just for testing",
+      "id": 12
     }
   ],
   "comments": [
