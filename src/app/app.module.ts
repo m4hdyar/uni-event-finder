@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -28,6 +29,8 @@ import { MatListModule } from '@angular/material/list';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
+import { RegisterComponent } from './register/register.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -40,7 +43,8 @@ import {MatCardModule} from '@angular/material/card';
     AdminPanelComponent,
     HomePageComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSortModule,
     MatListModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatRadioModule
     
     
     
