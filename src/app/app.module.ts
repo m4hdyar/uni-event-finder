@@ -21,7 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
@@ -31,6 +31,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 
 
@@ -73,7 +74,9 @@ import {MatRadioModule} from '@angular/material/radio';
     
     
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, 
+    useClass: AuthInterceptorService, 
+    multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
