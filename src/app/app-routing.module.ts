@@ -5,10 +5,12 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: 'admin-panel', component: AdminPanelComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'profile', component: ProfileComponent},
   
   { path: 'login', component:LoginComponent, pathMatch: 'full' },
   { path: '**', component:HomePageComponent, pathMatch: 'full' }

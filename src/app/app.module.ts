@@ -32,6 +32,7 @@ import {MatCardModule} from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -46,6 +47,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     NavBarComponent,
     LoginComponent,
     RegisterComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
