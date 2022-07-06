@@ -33,7 +33,7 @@ import { RegisterComponent } from './register/register.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProfileComponent } from './profile/profile.component';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -71,7 +71,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatListModule,
     MatSidenavModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCheckboxModule
     
     
     
