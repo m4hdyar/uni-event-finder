@@ -12,9 +12,9 @@ export interface Major {
 })
 export class ProfileComponent implements OnInit {
 
-  username = 'Boring Geek 1337';
+  //username = 'Boring Geek 1337';
   email = 'postbox@example.net';
-  password = 'JgAPNXxB';
+  //password = 'JgAPNXxB';
   program = 2;
   is_International = false;
   need_Job = true;

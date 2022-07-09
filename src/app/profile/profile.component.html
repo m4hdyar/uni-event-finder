@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <span>{{username}}'s Profile Page</span>
+    <span>Profile Page</span>
 </mat-toolbar>
 
 <mat-card>
@@ -8,18 +8,17 @@
         <section>
             <mat-form-field style="width:13vw">
                 <mat-label>Email address</mat-label>
-                <input type="email" matInput [(ngModel)]="email" placeholder="New email can't be empty" name="email"
-                    required />
+                <input type="email" matInput [value]="email" name="email" readonly/>
             </mat-form-field>
         </section>
 
-        <section>
+        <!-- <section>
             <mat-form-field style="width:13vw">
                 <mat-label>Password</mat-label>
                 <input matInput [(ngModel)]="password" placeholder="New password can't be empty" name="password"
                     required />
             </mat-form-field>
-        </section>
+        </section> -->
     </mat-card-content>
 </mat-card>
 
