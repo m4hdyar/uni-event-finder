@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from  '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { User } from '../models/user.model';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +11,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  email : string = '';
+  password : string = '';
+
+  constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
+  
+  }
+
+  doRegister(){
+    let user:User={
+      email:this.email,
+      password:this.password
+    }
+
+    this.apiService.createUser(user).subscribe({
+      next: (res) => {
+        alert("User created!");
+      },
+      error: (err) => {
+        alert("Error saving data!");
+      }
+    });
   }
 
 }

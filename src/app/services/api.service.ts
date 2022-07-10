@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, mergeMap } from 'rxjs';
 import { Profile } from '../models/profile.model';
 import { UniEvent } from '../models/uni-event.model';
+import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -17,6 +18,11 @@ export class ApiService {
   profileReq: { profile: Profile | null } = {
     profile: null
   };
+
+  userReq: { user: User | null } = {
+    user: null
+  };
+
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   postEvent(data: UniEvent) {
@@ -62,5 +68,11 @@ export class ApiService {
 
   getUserProfile(userID: string): Observable<{ profile: Profile }> {
     return this.http.get<{ profile: Profile }>("http://localhost:3600/api/profile/" + userID);
+  }
+
+
+  createUser(data:User){
+    this.userReq.user=data;
+    return this.http.post<any>("http://localhost:3600/api/users/", this.userReq);
   }
 }

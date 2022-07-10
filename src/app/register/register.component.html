@@ -5,37 +5,21 @@
  <mat-card class="my-card">
     <mat-card-content>
          
-      <!-- CONTENT HERE -->
+      <form class="my-form">
+       
+         <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input  matInput  placeholder="Email" name="email" [(ngModel)]="email">
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input  matInput  placeholder="Password"  name="password" [(ngModel)]="password">
+         </mat-form-field>
+  </form>
          
     </mat-card-content>
     <mat-card-actions>
-      <!-- REGISTER BUTTON -->
+      <button mat-raised-button color="primary" (click)="doRegister()">REGISTER</button>
     </mat-card-actions>
  </mat-card>
- <mat-card-content>
-    <form class="my-form">
-       
-           <mat-form-field class="full-width">
-              <mat-label>Email</mat-label>
-              <input  matInput  placeholder="Email" name="email">
-           </mat-form-field>
-           <mat-form-field class="full-width">
-              <mat-label>Password</mat-label>
-              <input  matInput  placeholder="Password"  name="password">
-           </mat-form-field>
-    </form>
-  </mat-card-content>
-  <section class="example-section">
-   
-  </section>
-
-  
-<mat-card-content>
-    <form class="my-form">
-       <!--FORM FIELDS-->
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <!-- <button mat-raised-button (click)="register()" color="primary">REGISTER</button> -->
-    <button mat-raised-button color="primary">REGISTER</button>
-  </mat-card-actions>
+ 

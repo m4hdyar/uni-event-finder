@@ -27,8 +27,8 @@ export class AuthService {
     const expiresAt = moment().add(1, 'days');
 
     localStorage.setItem('email', authResult.email);
-    localStorage.setItem('user_id', authResult._id);
-    localStorage.setItem('id_token', authResult.token);
+    localStorage.setItem('user_id', authResult._id!);
+    localStorage.setItem('id_token', authResult.token!);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 

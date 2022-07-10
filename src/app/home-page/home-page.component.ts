@@ -50,7 +50,6 @@ export class HomePageComponent implements OnInit {
           this.suggestedEvents = new MatTableDataSource();
           this.suggestedEvents.paginator = this.paginatorSuggestedEvents;
           this.suggestedEvents.sort = this.sortSuggestedEvents;
-          alert("Error while fetching the Data")
         }
 
       });
