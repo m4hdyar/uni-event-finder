@@ -30,10 +30,10 @@
         
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <!-- <mat-form-field appearance="outline">
         <mat-label>Event Location</mat-label>
         <input formControlName="eventLocation" matInput placeholder="Location">
-      </mat-form-field>
+      </mat-form-field> -->
 
       <mat-form-field appearance="outline">
         <mat-label>Cost</mat-label>
@@ -45,6 +45,14 @@
         <textarea formControlName="eventDescription" matInput> </textarea>
       </mat-form-field>
 
+      <mat-form-field appearance="outline">
+        <mat-label>Event Description</mat-label>
+        <textarea formControlName="eventDescription" matInput> </textarea>
+      </mat-form-field>
+
+        <mat-checkbox formControlName="isInternational" >International </mat-checkbox>
+        <mat-checkbox formControlName="isJobEvent" >Job Event </mat-checkbox>
+        <mat-checkbox formControlName="isVeryImportant" >Very Important Event</mat-checkbox>
    </form>
 </div>
 <div mat-dialog-action [align]="'end'">

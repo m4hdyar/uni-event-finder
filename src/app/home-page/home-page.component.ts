@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { UniEvent } from '../models/uni-event.model';
+import { ApiService } from '../services/api.service';
+import { tap } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,42 +14,70 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  columnsToDisplay = ['title','category','description', 'start_date', 'end_date'];
 
-  events = [
-    {
-      "title": "First event",
-      "category" : "education",
-      "description": "First event",
-      "startDate": "2017-10-10",
-      "endDate": "2017-10-12"
-    },
-    {
-      "title": "Second",
-      "category" : "education",
-      "description": "Second event",
-      "startDate": "2017-10-10",
-      "endDate": "2017-10-12"
-    },
-    {
-      "title": "Third",
-      "category" : "Party",
-      "description": "Third event",
-      "startDate": "2017-10-10",
-      "endDate": "2017-10-12"
-    },
-    {
-      "title": "Fourth",
-      "category" : "Sport",
-      "description": "Fourth event",
-      "startDate": "2017-10-10",
-      "endDate": "2017-10-12"
-    }
+  columnsToDisplay: string[] = ['title','category','description', 'start_date', 'end_date','cost'];
+  
 
-  ];
-  constructor() { }
+  events!: MatTableDataSource<UniEvent>;
+
+  suggestedEvents!: MatTableDataSource<UniEvent>;
+  //events:UniEvent[] = [];
+
+
+  constructor(private dialog: MatDialog, private api: ApiService, private authService:AuthService) { }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  @ViewChild(MatPaginator) paginatorSuggestedEvents!: MatPaginator;
+  @ViewChild(MatSort) sortSuggestedEvents!: MatSort;
 
   ngOnInit(): void {
+    this.getAllEvents();
+    this.getSuggestedEvents();
+  }
+
+  getSuggestedEvents(){
+    let userID:string | null =this.authService.getUserID();
+    if(userID){
+      this.api.getSuggestedEvents(userID).subscribe({
+        next: (res) => {
+          this.suggestedEvents = new MatTableDataSource(res.events);
+          this.suggestedEvents.paginator = this.paginatorSuggestedEvents;
+          this.suggestedEvents.sort = this.sortSuggestedEvents;
+        },
+        error: () => {
+          this.suggestedEvents = new MatTableDataSource();
+          this.suggestedEvents.paginator = this.paginatorSuggestedEvents;
+          this.suggestedEvents.sort = this.sortSuggestedEvents;
+          alert("Error while fetching the Data")
+        }
+
+      });
+    }else return;
+  }
+  getAllEvents() {
+    this.api.getEvent()
+      .subscribe({
+        next: (res) => {
+          this.events = new MatTableDataSource(res.events);
+          this.events.paginator = this.paginator;
+          this.events.sort = this.sort;
+        },
+        error: () => {
+          alert("Error while fetching the Data")
+        }
+
+      })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.events.filter = filterValue.trim().toLowerCase();
+
+    if (this.events.paginator) {
+      this.events.paginator.firstPage();
+    }
   }
 
 }

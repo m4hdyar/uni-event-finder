@@ -14,23 +14,19 @@ export class AuthService {
   login(email: string, password: string) {
     const reqbody= {
       user:{
-        "username":"user11",
         "email":email,
         "password":password
       }
     }
     return this.http.post<User>('http://localhost:3600/api/users/login', reqbody).pipe(
       tap(res => this.setSession(res)),
-      // this is just the HTTP call, 
-      // we still need to handle the reception of the token
       shareReplay());
   }
 
   private setSession(authResult:User) {
-    console.log(authResult +"HI");
-    // const expiresAt = moment().add(authResult.expiresIn, 'second');
     const expiresAt = moment().add(1, 'days');
 
+    localStorage.setItem('user_id', authResult._id);
     localStorage.setItem('id_token', authResult.token);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
@@ -46,6 +42,10 @@ export class AuthService {
 
   isLoggedOut() {
     return !this.isLoggedIn();
+  }
+
+  getUserID():string | null{
+    return localStorage.getItem('user_id');
   }
 
   getExpiration() {

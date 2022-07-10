@@ -1,57 +1,72 @@
 <h2>Suggested Events</h2>
 
+<div class="mat-elevation-z8">
+   <table mat-table [dataSource]="suggestedEvents" matSort class="table-full-width">
+      <ng-container matColumnDef="title">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+         <td mat-cell *matCellDef="let event"> {{event.title}} </td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+         <td mat-cell *matCellDef="let event"> {{event.category}} </td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+         <td mat-cell *matCellDef="let event"> {{event.description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="start_date">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Start date </th>
+         <td mat-cell *matCellDef="let event"> {{event.start_Date |date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="end_date">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> End date </th>
+         <td mat-cell *matCellDef="let event"> {{event.end_Date |date}} </td>
+      </ng-container>
 
-<table mat-table [dataSource]="events" class="mat-elevation-z8 table-full-width">
-    <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let event"> {{event.title}} </td>
-     </ng-container>
-     <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let event"> {{event.title}} </td>
-   </ng-container>
-     <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> Description </th>
-        <td mat-cell *matCellDef="let event"> {{event.description}} </td>
-     </ng-container>
-     <ng-container matColumnDef="start_date">
-        <th mat-header-cell *matHeaderCellDef> Start date </th>
-        <td mat-cell *matCellDef="let event"> {{event.startDate |date}} </td>
-     </ng-container>
-     <ng-container matColumnDef="end_date">
-        <th mat-header-cell *matHeaderCellDef> End date </th>
-        <td mat-cell *matCellDef="let event"> {{event.endDate |date}} </td>
-     </ng-container>
+      <ng-container matColumnDef="cost">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+         <td mat-cell *matCellDef="let event"> {{event.cost | currency}} </td>
+      </ng-container>
 
-     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-</table>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+   </table>
+   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of events"></mat-paginator>
+</div>
 
 <h2>All Events</h2>
-<table mat-table [dataSource]="events" class="mat-elevation-z8 table-full-width">
-    <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> Title </th>
-        <td mat-cell *matCellDef="let event"> {{event.title}} </td>
-     </ng-container>
-
-      <ng-container matColumnDef="category">
-         <th mat-header-cell *matHeaderCellDef> Category </th>
+<div class="mat-elevation-z8">
+   <table mat-table [dataSource]="events" matSort class="table-full-width">
+      <ng-container matColumnDef="title">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
          <td mat-cell *matCellDef="let event"> {{event.title}} </td>
       </ng-container>
 
-     <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> Description </th>
-        <td mat-cell *matCellDef="let event"> {{event.description}} </td>
-     </ng-container>
-     <ng-container matColumnDef="start_date">
-        <th mat-header-cell *matHeaderCellDef> Start date </th>
-        <td mat-cell *matCellDef="let event"> {{event.startDate |date}} </td>
-     </ng-container>
-     <ng-container matColumnDef="end_date">
-        <th mat-header-cell *matHeaderCellDef> End date </th>
-        <td mat-cell *matCellDef="let event"> {{event.endDate |date}} </td>
-     </ng-container>
+      <ng-container matColumnDef="category">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+         <td mat-cell *matCellDef="let event"> {{event.category}} </td>
+      </ng-container>
 
-     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-</table>
+      <ng-container matColumnDef="description">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+         <td mat-cell *matCellDef="let event"> {{event.description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="start_date">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Start date </th>
+         <td mat-cell *matCellDef="let event"> {{event.start_Date |date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="end_date">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> End date </th>
+         <td mat-cell *matCellDef="let event"> {{event.end_Date |date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="cost">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+         <td mat-cell *matCellDef="let event"> {{event.cost | currency}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+   </table>
+   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of events"></mat-paginator>
+</div>

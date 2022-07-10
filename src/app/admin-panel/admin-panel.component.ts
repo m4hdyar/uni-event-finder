@@ -5,6 +5,7 @@ import { ApiService } from '../services/api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { UniEvent } from '../models/uni-event.model';
 
 @Component({
   selector: 'app-admin-panel',
@@ -15,8 +16,8 @@ export class AdminPanelComponent implements OnInit {
 
   title = 'uni-event-finder';
 
-  displayedColumns: string[] = ['eventName', 'eventCaregory', 'eventStartDate', 'eventEndDate','eventLocation','eventCost','eventDescription','action'];
-  dataSource!: MatTableDataSource<any>;
+  displayedColumns: string[] = ['eventName', 'eventCaregory', 'eventStartDate', 'eventEndDate','eventCost','eventDescription','action'];
+  dataSource!: MatTableDataSource<UniEvent>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -41,7 +42,7 @@ getAllEvents(){
   this.api.getEvent()
   .subscribe({
     next:(res)=>{
-      this.dataSource = new MatTableDataSource(res);
+      this.dataSource = new MatTableDataSource(res.events);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     },
@@ -64,7 +65,7 @@ editEvent(row : any){
 
 }
 
-deleteEvent(id:number){
+deleteEvent(id:string){
   this.api.deleteEvent(id)
   .subscribe({
     next:(res)=>{
