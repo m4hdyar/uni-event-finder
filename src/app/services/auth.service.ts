@@ -26,6 +26,7 @@ export class AuthService {
   private setSession(authResult:User) {
     const expiresAt = moment().add(1, 'days');
 
+    localStorage.setItem('email', authResult.email);
     localStorage.setItem('user_id', authResult._id);
     localStorage.setItem('id_token', authResult.token);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
@@ -48,6 +49,9 @@ export class AuthService {
     return localStorage.getItem('user_id');
   }
 
+  getEmailID():string | null{
+    return localStorage.getItem('email');
+  }
   getExpiration() {
     const expiration = localStorage.getItem("expires_at");
     const expiresAt = expiration ? JSON.parse(expiration) : moment().subtract(1,"days");

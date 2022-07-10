@@ -14,6 +14,9 @@ export class ApiService {
     event: null
   };
 
+  profileReq: { profile: Profile | null } = {
+    profile: null
+  };
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   postEvent(data: UniEvent) {
@@ -32,6 +35,18 @@ export class ApiService {
     return this.http.delete<any>("http://localhost:3600/api/event/" + id);
   }
 
+  postProfile(data:Profile){
+    this.profileReq.profile=data;
+    if(data._id && data.user){
+      this.profileReq.profile.is_International = String(this.profileReq.profile.is_International);
+      this.profileReq.profile.need_Job = String(this.profileReq.profile.need_Job);
+      return this.http.put<any>("http://localhost:3600/api/profile/" + data.user, this.profileReq);
+    }else{
+      return this.http.post<any>("http://localhost:3600/api/profile/", this.profileReq);
+    }
+    
+  }
+  
   getSuggestedEvents(lokuserID: string): Observable<{ events: UniEvent[] }> {
     return this.getUserProfile(lokuserID).pipe(
       mergeMap((res) => {
@@ -43,8 +58,8 @@ export class ApiService {
         console.log(eventReqParams);
         return this.http.get<{ events: UniEvent[] }>("http://localhost:3600/api/event/", { params: eventReqParams });
       }));
-
   }
+
   getUserProfile(userID: string): Observable<{ profile: Profile }> {
     return this.http.get<{ profile: Profile }>("http://localhost:3600/api/profile/" + userID);
   }

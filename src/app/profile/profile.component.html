@@ -8,59 +8,57 @@
         <section>
             <mat-form-field style="width:13vw">
                 <mat-label>Email address</mat-label>
-                <input type="email" matInput [value]="email" name="email" readonly/>
+                <input type="email" matInput [value]="email" name="email" disabled="true" />
             </mat-form-field>
         </section>
-
-        <!-- <section>
-            <mat-form-field style="width:13vw">
-                <mat-label>Password</mat-label>
-                <input matInput [(ngModel)]="password" placeholder="New password can't be empty" name="password"
-                    required />
-            </mat-form-field>
-        </section> -->
     </mat-card-content>
 </mat-card>
 
 <mat-card>
-    <mat-card-content>
-        <h3>Personal data</h3>
+    <form [formGroup]="profileForm">
+        <mat-card-content>
+            <h3>Personal data</h3>
 
-        <section class="degree">
-            <mat-label style="font-weight: 500;">Degree</mat-label>
-            <mat-radio-group [(ngModel)]="program">
-                <mat-radio-button labelPosition="after" class="my-margin" [value]="1">Bachelor</mat-radio-button>
-                <mat-radio-button labelPosition="after" class="my-margin" [value]="2">Master</mat-radio-button>
-                <mat-radio-button labelPosition="after" class="my-margin" [value]="3">PhD</mat-radio-button>
-            </mat-radio-group>
-        </section>
+            <section class="degree">
+                <mat-label style="font-weight: 500;">Degree</mat-label>
+                <mat-radio-group formControlName="program">
+                    <mat-radio-button labelPosition="after" class="my-margin" value="bachelor">Bachelor
+                    </mat-radio-button>
+                    <mat-radio-button labelPosition="after" class="my-margin" value="master">Master</mat-radio-button>
+                    <mat-radio-button labelPosition="after" class="my-margin" value="phd">PhD</mat-radio-button>
+                </mat-radio-group>
+            </section>
 
 
-        <section>
-            <mat-form-field style="width:13vw">
-                <mat-select placeholder="Major" [(ngModel)]="selectedMajor" name="major">
-                    <mat-option *ngFor="let major of majors" [value]="major.value"> {{major.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </section>
+            <section>
+                <mat-form-field style="width:13vw">
+                    <mat-select placeholder="Major" formControlName="major">
+                        <mat-option *ngFor="let major of majors" [value]="major.value"> {{major.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </section>
 
-        <section>
-            <mat-form-field style="width:22vw">
-                <mat-select [(ngModel)]="selectedInterests" placeholder="Interests" name="interests" multiple
-                    #selectionModel="ngModel">
-                    <mat-option *ngFor="let interest of interests" [value]="interest"> {{interest}} </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </section>
+            <section>
+                <mat-form-field style="width:22vw">
+                    <mat-select formControlName="interest_List" placeholder="Interests" name="interests" multiple>
+                        <mat-option *ngFor="let interest of interests" [value]="interest"> {{interest}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </section>
 
-        <section>
-            <mat-checkbox [(ngModel)]="is_International">International Student</mat-checkbox>
-        </section>
+            <section>
+                <mat-checkbox formControlName="is_International">International Student</mat-checkbox>
+            </section>
 
-        <section>
-            <mat-checkbox [(ngModel)]="need_Job">Open for Jobs</mat-checkbox>
-        </section>
+            <section>
+                <mat-checkbox formControlName="need_Job">Open for Jobs</mat-checkbox>
+                <!-- <mat-checkbox [(ngModel)]="need_Job">Open for Jobs</mat-checkbox> -->
+            </section>
 
-    </mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="updateProfile()" [disabled]="!profileForm.valid"> Update </button>
+        </mat-card-actions>
+    </form>
 </mat-card>
