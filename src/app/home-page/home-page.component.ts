@@ -26,10 +26,10 @@ export class HomePageComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private api: ApiService, private authService:AuthService) { }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('paginatorAll') paginatorAll!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  @ViewChild(MatPaginator) paginatorSuggestedEvents!: MatPaginator;
+  @ViewChild('paginatorSuggestedEvents') paginatorSuggestedEvents!: MatPaginator;
   @ViewChild(MatSort) sortSuggestedEvents!: MatSort;
 
   ngOnInit(): void {
@@ -60,7 +60,7 @@ export class HomePageComponent implements OnInit {
       .subscribe({
         next: (res) => {
           this.events = new MatTableDataSource(res.events);
-          this.events.paginator = this.paginator;
+          this.events.paginator = this.paginatorAll;
           this.events.sort = this.sort;
         },
         error: () => {

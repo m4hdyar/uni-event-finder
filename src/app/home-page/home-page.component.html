@@ -31,7 +31,7 @@
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
       <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
    </table>
-   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of events"></mat-paginator>
+   <mat-paginator #paginatorSuggestedEvents="matPaginator" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of events"></mat-paginator>
 </div>
 
 <h2>All Events</h2>
@@ -68,5 +68,5 @@
       <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 
    </table>
-   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of events"></mat-paginator>
+   <mat-paginator #paginatorAll="matPaginator" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of events"></mat-paginator>
 </div>
