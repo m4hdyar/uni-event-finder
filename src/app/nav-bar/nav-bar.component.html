@@ -8,7 +8,7 @@
       <a mat-list-item href="/login">Login</a>
       <a mat-list-item href="/register">Register</a>
       <a mat-list-item href="/">Homepage</a>
-      <a mat-list-item href="/admin-panel">Admin Panel</a>
+      <!-- <a mat-list-item href="/admin-panel">Admin Panel</a> -->
       <a mat-list-item href="/profile">Profile page</a>
       <a mat-list-item (click)="logout()">Logout</a>
     </mat-nav-list>
@@ -23,7 +23,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>uni-event-finder</span>
+      <span class="center-text">Uni Event Finder</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
