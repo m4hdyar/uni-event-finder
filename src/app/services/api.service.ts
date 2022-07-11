@@ -58,10 +58,8 @@ export class ApiService {
       mergeMap((res) => {
         let eventReqParams = new HttpParams();
         let userInterests = res.profile.interest_List.join(",");
-        console.log(userInterests);
         
         eventReqParams = eventReqParams.append("category", userInterests);
-        console.log(eventReqParams);
         return this.http.get<{ events: UniEvent[] }>("http://localhost:3600/api/event/", { params: eventReqParams });
       }));
   }

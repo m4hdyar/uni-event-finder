@@ -62,7 +62,7 @@ export class DialogComponent implements OnInit {
       if (this.eventForm.valid) {
         let uniEvent: UniEvent = {
           title: this.eventForm.value.eventName,
-          description: this.eventForm.value.eventCaregory,
+          description: this.eventForm.value.eventDescription,
           start_Date: this.eventForm.value.eventStartDate,
           end_Date: this.eventForm.value.eventEndDate,
           category: this.eventForm.value.eventCaregory,
@@ -96,7 +96,7 @@ export class DialogComponent implements OnInit {
   updateEvent() {
     let uniEvent: UniEvent = {
       title: this.eventForm.value.eventName,
-      description: this.eventForm.value.eventCaregory,
+      description: this.eventForm.value.eventDescription,
       start_Date: this.eventForm.value.eventStartDate,
       end_Date: this.eventForm.value.eventEndDate,
       category: this.eventForm.value.eventCaregory,
