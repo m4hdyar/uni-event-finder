@@ -1,4 +1,4 @@
-# UEF Backend
+# UEF Frontend
 
 Uni Event finder is an application the universities can use to manage events and promote them, so interested students can find and join the events easily. The application helps the users finding suitable events by suggesting the related events based on their profile. There are various parameters that users can set, for example, their major, whether they are open to a job, their interests and hobbies.
 
